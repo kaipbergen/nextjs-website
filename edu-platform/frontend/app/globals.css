@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Dark mode styles */
+.dark {
+color-scheme: dark;
+}
+
+/* Animations */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes slideUp {
+from { transform: translateY(20px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+/* Card hover effects */
+.feature-card {
+transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+transform: translateY(-5px);
+}
+
+/* Floating button */
+.floating-button {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+z-index: 50;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+
+/* Progress bar */
+.scroll-progress {
+position: fixed;
+top: 0;
+left: 0;
+height: 3px;
+background: #3b82f6;
+z-index: 100;
+transition: width 0.1s ease-out;
+}
+
+/* Loading animation */
+.loading-spinner {
+border: 3px solid #f3f3f3;
+border-top: 3px solid #3b82f6;
+border-radius: 50%;
+width: 24px;
+height: 24px;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Card flip animation */
+.flip-card {
+perspective: 1000px;
+}
+
+.flip-card-inner {
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+backface-visibility: hidden;
+}
+
+.flip-card-back {
+transform: rotateY(180deg);
+}
+
+/* Tooltip styles */
+.tooltip {
+position: relative;
+}
+
+.tooltip:hover::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+padding: 0.5rem;
+background: #1f2937;
+color: white;
+border-radius: 0.25rem;
+font-size: 0.875rem;
+white-space: nowrap;
+}
