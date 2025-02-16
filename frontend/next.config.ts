@@ -1,11 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   experimental: {
     appDir: true,
-  } as any, // cast to any to bypass type errors
+  } as any,
   output: "export",
-  assetPrefix: process.env.NODE_ENV === "production" ? "/nextjs-website/" : "",
+  assetPrefix:
+    process.env.NODE_ENV === "production" ? "/nextjs-website/" : "",
+  basePath:
+    process.env.NODE_ENV === "production" ? "/nextjs-website" : "",
 };
 
 export default nextConfig;
